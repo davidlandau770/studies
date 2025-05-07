@@ -526,31 +526,8 @@
 //Console.WriteLine((username == getUserName) && (password == getPassword) ? "welcome" : "Incorrect login details.");
 
 // שאלה 18
-double num;
-Console.WriteLine("Enter num: ");
-num = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine(num % 1 != 1 ? );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//double num;
+//Console.WriteLine("Enter num: ");
+//num = Convert.ToInt32(Console.ReadLine());
+//Console.WriteLine(num % 1 != 1 ? );
 
