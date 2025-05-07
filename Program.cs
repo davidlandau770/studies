@@ -529,5 +529,18 @@
 //double num;
 //Console.WriteLine("Enter num: ");
 //num = Convert.ToInt32(Console.ReadLine());
-//Console.WriteLine(num % 1 != 1 ? );
-
+//if (num % 1 != 1)
+//{
+//    if (num >= 0)
+//    {
+//        Console.WriteLine("num is positive");
+//    }
+//    else
+//    {
+//        Console.WriteLine("num is negative");
+//    }
+//}
+//else
+//{
+//    Console.WriteLine("num is deciml");
+//}
