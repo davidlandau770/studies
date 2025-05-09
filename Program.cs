@@ -544,3 +544,7 @@
 //{
 //    Console.WriteLine("num is deciml");
 //}
+//for (int i = 1; i < 11; i++)
+//{
+
+//}
