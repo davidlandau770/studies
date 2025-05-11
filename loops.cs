@@ -210,47 +210,48 @@
 //Console.WriteLine(astrics);
 
 // שאלה 21
-//bool result;
-//bool stop = true;
+bool result;
+bool stop = true;
 
-//do
-//{
-//    Console.WriteLine("Dear Officer, please select one of the options.\n1. Second Lieutenant\n2. Lieutenant\n3. Captain\n4. Major\n5. Lieutenant Colonel\n6. Exit");
-//    result = int.TryParse(Console.ReadLine(), out int num);
-//    if (result)
-//    {
-//        Convert.ToInt32(num);
-//        switch (num)
-//        {
-//            case 1:
-//                Console.WriteLine("\n***\n\nCongratulations to the \"Second Lieutenant\", in 8 ranks you will be Chief of Staff\n\n***\n");
-//                continue;
-//            case 2:
-//                Console.WriteLine("\n***\n\nCongratulations to the \"Second Lieutenant\", in 7 ranks you will be Chief of Staff\n\n***\n");
-//                continue;
-//            case 3:
-//                Console.WriteLine("\n***\n\nCongratulations to the \"Second Lieutenant\", in 6 ranks you will be Chief of Staff\n\n***\n");
-//                continue;
-//            case 4:
-//                Console.WriteLine("\n***\n\nCongratulations to the \"Second Lieutenant\", in 5 ranks you will be Chief of Staff\n\n***\n");
-//                continue;
-//            case 5:
-//                Console.WriteLine("\n***\n\nCongratulations to the \"Second Lieutenant\", in 4 ranks you will be Chief of Staff\n\n***\n");
-//                continue;
-//            case 6:
-//                Console.WriteLine("\n***\n\nThank you and goodbye, bye\n\n***\n");
-//                stop = false;
-//                continue;
-//            default:
-//                Console.WriteLine("\n***\n\nEnter a valid number (between 1 and 6)\n\n***\n");
-//                continue;
-//        }
-//    } else
-//    {
-//        Console.WriteLine("\n***\n\nEnter a valid number (between 1 and 6)\n\n***\n");
-//    }
-//}
-//while (stop);
+do
+{
+    Console.WriteLine("Dear Officer, please select one of the options.\n1. Second Lieutenant\n2. Lieutenant\n3. Captain\n4. Major\n5. Lieutenant Colonel\n6. Exit");
+    result = int.TryParse(Console.ReadLine(), out int num);
+    if (result)
+    {
+        Convert.ToInt32(num);
+        switch (num)
+        {
+            case 1:
+                Console.WriteLine("\n***\n\nCongratulations to the \"Second Lieutenant\", in 8 ranks you will be Chief of Staff\n\n***\n");
+                return;
+            case 2:
+                Console.WriteLine("\n***\n\nCongratulations to the \"Second Lieutenant\", in 7 ranks you will be Chief of Staff\n\n***\n");
+                return;
+            case 3:
+                Console.WriteLine("\n***\n\nCongratulations to the \"Second Lieutenant\", in 6 ranks you will be Chief of Staff\n\n***\n");
+                return;
+            case 4:
+                Console.WriteLine("\n***\n\nCongratulations to the \"Second Lieutenant\", in 5 ranks you will be Chief of Staff\n\n***\n");
+                return;
+            case 5:
+                Console.WriteLine("\n***\n\nCongratulations to the \"Second Lieutenant\", in 4 ranks you will be Chief of Staff\n\n***\n");
+                return;
+            case 6:
+                Console.WriteLine("\n***\n\nThank you and goodbye, bye\n\n***\n");
+                stop = false;
+                return;
+            default:
+                Console.WriteLine("\n***\n\nEnter a valid number (between 1 and 6)\n\n***\n");
+                return;
+        }
+    }
+    else
+    {
+        Console.WriteLine("\n***\n\nEnter a valid number (between 1 and 6)\n\n***\n");
+    }
+}
+while (stop);
 
 // שאלה 22
 //bool stop = true;
