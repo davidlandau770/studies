@@ -1,7 +1,8 @@
 {
   "profiles": {
     "variables": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "commandLineArgs": "9 8 7 a 5"
     }
   }
 }
