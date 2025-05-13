@@ -36,22 +36,25 @@
 //}
 
 // שאלה 4
-//List<string> strings = new List<string> { "aaa", "bbb", "ccc", "ddd", "eee"};
+//List<string> strings = new List<string> { "aaa", "bbb", "ccc", "ddd", "eee" };
 //Console.WriteLine("Enter user name: ");
 //string inputName = Console.ReadLine();
 //bool exists = false;
 //int index = 0;
-//for (int i = 0; i < strings.Count; i++) {
-//    if (strings[i] == inputName) {
+//for (int i = 0; i < strings.Count; i++)
+//{
+//    if (strings[i] == inputName)
+//    {
 //        exists = true;
 //        index = i;
 //        break;
 //    }
-//} 
+//}
 //if (exists)
 //{
 //    Console.WriteLine(index);
-//} else
+//}
+//else
 //{
 //    Console.WriteLine("Username not registered");
 //}
