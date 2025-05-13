@@ -17,21 +17,23 @@ class Project
      */
     static List<int> ints = new List<int>();
     static List<int> temporaryInt = new List<int>();
-    static bool stop = true;
-
+    static bool stop = true, continuation = true;
+    static int countIntPositive = 0;
     // פונקציה שרצה עוד לפני שהמשתמש מתחיל.
     // מקבלת את הרשימה הראשונית מתוך הדיבאג ועובדת עליו
     static void checkArr(string[] args)
     {
-        int count = 0;
         Console.WriteLine("The numbers you entered are: ");
         for (int i = 0; i < args.Length; i++)
         {
             Console.WriteLine(args[i]);
-            bool typeInt = checkNum(args[i]);
-            if (typeInt)
+            bool typeIfInt = checkNum(args[i]);
+            if (typeIfInt)
             {
-                addNum(args[i]);
+                int convertToInt = Convert.ToInt32(args[i]);
+                addNum(convertToInt);
+                checkPositive(convertToInt);
+                Console.WriteLine($"##########: {countIntPositive}");
             }
             else
             {
@@ -39,22 +41,24 @@ class Project
             }
         }
         bool checkLength = checkLengthList();
+        Console.WriteLine(checkLength);
         if (checkLength)
         {
             ReplaceList();
         }
         else
         {
+            temporaryInt.Clear();
             Console.WriteLine("You entered less than 3 positive numbers. Please enter again.");
         }
-        Console.WriteLine("");
+        //Console.WriteLine("");
     }
 
     // 1. פונקציה שמאפשרת למשתמש להחליף את סדרת המספרים
     static void changeList()
     {
         bool quit = true;
-        bool checkLength = false;
+        countIntPositive = 0;
         Console.WriteLine("\nTo confirm the list, press Q.");
         while (quit)
         {
@@ -62,13 +66,15 @@ class Project
             string enterNum = Console.ReadLine();
             if (enterNum == "q" || enterNum == "Q")
             {
-                checkLength = checkLengthList();
+                bool checkLength = checkLengthList();
                 if (checkLength)
                 {
                     ReplaceList();
                     print();
                 } else
                 {
+                    temporaryInt.Clear();
+                    countIntPositive = 0;
                     Console.WriteLine("You entered less than 3 positive numbers. Please enter again.\n");
                     break;
                 }
@@ -80,7 +86,9 @@ class Project
                 bool resultCheckNum = checkNum(enterNum);
                 if (resultCheckNum)
                 {
-                    addNum(enterNum);
+                    int convertToInt = Convert.ToInt32(enterNum);
+                    addNum(convertToInt);
+                    checkPositive(convertToInt);
                 }
                 else
                 {
@@ -99,16 +107,28 @@ class Project
     }
 
     // הוספת המספר לרשימה זמנית
-    static void addNum(string enterNum)
+    static void addNum(int enterNum)
     {
-        int convertNum = Convert.ToInt32(enterNum);
-        temporaryInt.Add(convertNum);
+        temporaryInt.Add(enterNum);
     }
 
-    // בדיקה אם בפונקציה הזמנית יש מעל 3 ערכים
+    // בדיקת המספר אם הוא חיובי
+    static bool checkPositive(int num)
+    {
+        if (num > 0)
+        {
+            countIntPositive++;
+            return true;
+        } else
+        {
+            return false;
+        }
+    }
+
+    // בדיקה אם בפונקציה הזמנית יש מעל 3 ערכים חיוביים
     static bool checkLengthList()
     {
-        return temporaryInt.Count >= 3 ? true : false;
+        return countIntPositive >= 3 ? true : false;
     }
 
     // החלפת הפונקציה המקורית בפונקציה הזמנית
@@ -116,6 +136,7 @@ class Project
     {
         ints = new List<int>(temporaryInt);
         temporaryInt.Clear();
+        continuation = false;
     }
 
     // 2. הדפסת הסדרה
@@ -158,7 +179,7 @@ class Project
                 highest = ints[i];
             }
         }
-        Console.WriteLine(highest);
+        Console.WriteLine("The number highest is: " + highest);
     }
     
     // 6. הדפסת המספר הנמוך
@@ -172,12 +193,12 @@ class Project
                 lowest = ints[i];
             }
         }
-        Console.WriteLine(lowest);
+        Console.WriteLine("The number lowest is: " + lowest);
     }
     // 7. הדפסת הממוצע של הסדרה
     static void average()
     {
-        Console.WriteLine((double)sumOfSeries() / ints.Count);
+        Console.WriteLine("The average is: " + (double)sumOfSeries() / ints.Count);
     }
 
     // פונקציית עזר:
@@ -195,30 +216,47 @@ class Project
     // 8. כמות האיברים שבסדרה
     static void count()
     {
-        Console.WriteLine(ints.Count);
+        Console.WriteLine("The total number of terms in the series is: " + ints.Count);
     }
 
     // 9. סכום האיברים בסדרה
     static void sum()
     {
-        Console.WriteLine(sumOfSeries());
+        Console.WriteLine("Sum the series is: " + sumOfSeries());
     }
 
     // 10. יציאה מהתכנית
     static void exit()
     {
         stop = false;
+        Console.WriteLine("Bye");
     }
 
+    static void checkSerios(string[] args)
+    {
+        checkArr(args);
+        if (ints.Count == 0)
+        {
+            temporaryInt.Clear();
+            for (int i = 0; i < temporaryInt.Count; i++)
+            {
+                Console.WriteLine(temporaryInt[i]);
+            }
+            Console.WriteLine("You have no values in ARGS, please enter a series manually.");
+            changeList();
+        }
+    }
     // פונקציית תפריט
     static void menu(string[] args)
     {
-        checkArr(args);
         while (stop)
         {
-
-            Console.WriteLine("Select using a number from the menu what you want:\n1. Replace the series.\n2. Print the series.\n3. Print the series in reverse order.\n4. Print sorted from low to high.\n5. Print the highest value.\n6. Print the lowest value.\n7. Print the average of the series.\n8. Print the number of values in the series.\n9. Print the sum of the series.\n10. Exit");
-            int chooseNum = Convert.ToInt32(Console.ReadLine());
+            while (continuation)
+            {
+                checkSerios(args);
+            }
+            Console.WriteLine("|\t\t\t    menu:\t\t\t\t|\n|----------------------—-––—–-----------------------------------|\n|\tSelect using a number from the menu what you want:\t|\n|\t1. Replace the series.\t\t\t\t\t|\n|\t2. Print the series.\t\t\t\t\t|\n|\t3. Print the series in reverse order.\t\t\t|\n|\t4. Print sorted from low to high.\t\t\t|\n|\t5. Print the highest value.\t\t\t\t|\n|\t6. Print the lowest value.\t\t\t\t|\n|\t7. Print the average of the series.\t\t\t|\n|\t8. Print the number of values in the series.\t\t|\n|\t9. Print the sum of the series.\t\t\t\t|\n|\t10. Exit\t\t\t\t\t\t|\n|_______________________________________________________________|");
+            bool intOrString = int.TryParse(Console.ReadLine(), out int chooseNum);
             switch (chooseNum)
             {
                 case 1:
