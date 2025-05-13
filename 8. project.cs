@@ -23,17 +23,16 @@ class Project
     // מקבלת את הרשימה הראשונית מתוך הדיבאג ועובדת עליו
     static void checkArr(string[] args)
     {
-        Console.WriteLine("The numbers you entered are: ");
+        //Console.WriteLine("The numbers you entered are: ");
         for (int i = 0; i < args.Length; i++)
         {
-            Console.WriteLine(args[i]);
+            //Console.WriteLine(args[i]);
             bool typeIfInt = checkNum(args[i]);
             if (typeIfInt)
             {
                 int convertToInt = Convert.ToInt32(args[i]);
                 addNum(convertToInt);
                 checkPositive(convertToInt);
-                Console.WriteLine($"##########: {countIntPositive}");
             }
             else
             {
@@ -41,7 +40,6 @@ class Project
             }
         }
         bool checkLength = checkLengthList();
-        Console.WriteLine(checkLength);
         if (checkLength)
         {
             ReplaceList();
@@ -51,7 +49,6 @@ class Project
             temporaryInt.Clear();
             Console.WriteLine("You entered less than 3 positive numbers. Please enter again.");
         }
-        //Console.WriteLine("");
     }
 
     // 1. פונקציה שמאפשרת למשתמש להחליף את סדרת המספרים
