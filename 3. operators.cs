@@ -16,15 +16,20 @@
 //Console.WriteLine("The Scope is: " + 2 * (width + height));
 
 // שאלה 3
-Console.WriteLine("Enter num 1: ");
-int num1 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Enter num 2: ");
-int num2 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Enter num 3: ");
-int num3 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("The average is: " + (num1 + num2 + num3) / 3);
-Console.WriteLine("max num is: " + Math.Max(Math.Max(num1,num2),num3));
-Console.WriteLine("min num is: " + Math.Min(Math.Min(num1,num2),num3));
+//Console.WriteLine("Enter num 1: ");
+//int num1 = Convert.ToInt32(Console.ReadLine());
+//Console.WriteLine("Enter num 2: ");
+//int num2 = Convert.ToInt32(Console.ReadLine());
+//Console.WriteLine("Enter num 3: ");
+//int num3 = Convert.ToInt32(Console.ReadLine());
+//Console.WriteLine("The average is: " + (num1 + num2 + num3) / 3);
+//Console.WriteLine("max num is: " + Math.Max(Math.Max(num1,num2),num3));
+//Console.WriteLine("min num is: " + Math.Min(Math.Min(num1,num2),num3));
 
+// שאלה 4
+// 17
+
+// שאלה 5
+// true
 
 
