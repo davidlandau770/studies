@@ -68,7 +68,8 @@ class Project
                 {
                     ReplaceList();
                     print();
-                } else
+                }
+                else
                 {
                     temporaryInt.Clear();
                     countIntPositive = 0;
@@ -116,7 +117,8 @@ class Project
         {
             countIntPositive++;
             return true;
-        } else
+        }
+        else
         {
             return false;
         }
@@ -178,7 +180,7 @@ class Project
         }
         Console.WriteLine("The number highest is: " + highest);
     }
-    
+
     // 6. הדפסת המספר הנמוך
     static void lowest()
     {
@@ -244,14 +246,14 @@ class Project
         }
     }
     // פונקציית תפריט
-    static void menu(string[] args)
+    static void showMenuToUser(string[] args)
     {
+        while (continuation)
+        {
+            checkSerios(args);
+        }
         while (stop)
         {
-            while (continuation)
-            {
-                checkSerios(args);
-            }
             Console.WriteLine("|\t\t\t    menu:\t\t\t\t|\n|----------------------—-––—–-----------------------------------|\n|\tSelect using a number from the menu what you want:\t|\n|\t1. Replace the series.\t\t\t\t\t|\n|\t2. Print the series.\t\t\t\t\t|\n|\t3. Print the series in reverse order.\t\t\t|\n|\t4. Print sorted from low to high.\t\t\t|\n|\t5. Print the highest value.\t\t\t\t|\n|\t6. Print the lowest value.\t\t\t\t|\n|\t7. Print the average of the series.\t\t\t|\n|\t8. Print the number of values in the series.\t\t|\n|\t9. Print the sum of the series.\t\t\t\t|\n|\t10. Exit\t\t\t\t\t\t|\n|_______________________________________________________________|");
             bool intOrString = int.TryParse(Console.ReadLine(), out int chooseNum);
             switch (chooseNum)
@@ -291,6 +293,6 @@ class Project
     }
     static void Main(string[] args)
     {
-        menu(args);
+        showMenuToUser(args);
     }
 }
