@@ -19,8 +19,24 @@ class Project
     static List<int> temporaryInt = new List<int>();
     static bool stop = true, continuation = true;
     static int countIntPositive = 0;
-    // פונקציה שרצה עוד לפני שהמשתמש מתחיל.
-    // מקבלת את הרשימה הראשונית מתוך הדיבאג ועובדת עליו
+    // שתי פונקציות שרצים עוד לפני שהמשתמש מתחיל.
+    // פונקציה שבודקת אם יש רשימה ראשונית או שצריך לשלוח את המשתמש להכניס סדרה חדשה
+    
+    static void checkSerios(string[] args)
+    {
+        checkArr(args);
+        if (ints.Count == 0)
+        {
+            temporaryInt.Clear();
+            for (int i = 0; i < temporaryInt.Count; i++)
+            {
+                Console.WriteLine(temporaryInt[i]);
+            }
+            Console.WriteLine("You have no values in ARGS, please enter a series manually.");
+            changeList();
+        }
+    }
+    // הפונקציה מקבלת את הרשימה הראשונית מתוך הדיבאג ועובדת עליו
     static void checkArr(string[] args)
     {
         //Console.WriteLine("The numbers you entered are: ");
@@ -231,20 +247,6 @@ class Project
         Console.WriteLine("Bye");
     }
 
-    static void checkSerios(string[] args)
-    {
-        checkArr(args);
-        if (ints.Count == 0)
-        {
-            temporaryInt.Clear();
-            for (int i = 0; i < temporaryInt.Count; i++)
-            {
-                Console.WriteLine(temporaryInt[i]);
-            }
-            Console.WriteLine("You have no values in ARGS, please enter a series manually.");
-            changeList();
-        }
-    }
     // פונקציית תפריט
     static void showMenuToUser(string[] args)
     {
